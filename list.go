@@ -43,3 +43,14 @@ func (list *linkedList) detach(n *node) {
 	n.next = nil
 	n.prev = nil
 }
+
+func (list *linkedList) insertAtHead(n *node) {
+	if list.head == nil {
+		list.head = n
+		list.tail = n
+		return
+	}
+	list.head.prev = n
+	n.next = list.head
+	list.head = n
+}
