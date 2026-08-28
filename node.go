@@ -1,19 +1,25 @@
 package main
 
 type node struct {
-	prev *node
-	next *node
-	key  string
+	prev  *node
+	next  *node
+	key   string
+	value string
 }
 
-func NewNode(key string) *node {
+func newNode(key, value string) *node {
 	return &node{
-		prev: nil,
-		next: nil,
-		key:  key,
+		prev:  nil,
+		next:  nil,
+		key:   key,
+		value: value,
 	}
 }
 
-func GetKey(n *node) string {
+func getKey(n *node) string {
 	return n.key
+}
+
+func getValue(n *node) string {
+	return n.value
 }

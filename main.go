@@ -3,27 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	A := NewNode("A")
-	B := NewNode("B")
+	cache := newCache(3)
+	A := newNode("A", "Alice")
+	B := newNode("B", "Brian")
+	C := newNode("C", "Charlie")
 
-	A.next = B
-	B.prev = A
+	cache.add(A)
+	cache.add(B)
+	cache.add(C)
 
-	fmt.Println(GetKey(A))
-	fmt.Println(GetKey(B))
-	C := NewNode("C")
+	printForward(cache.list.head)
 
-	B.next = C
-	C.prev = B
+	cache.get("A")
+	printForward(cache.list.head)
 
-	list := &linkedList{}
+	cache.put("B", "Byaku")
+	printForward(cache.list.head)
 
-	list.head = A
-	list.tail = C
-	printForward(A)
-	printBackward(C)
-
-	list.detach(A)
-	printForward(list.head)
-	printBackward(list.tail)
+	cache.put("D", "Diana")
+	fmt.Println(cache.get("D"))
+	printForward(cache.list.head)
 }
