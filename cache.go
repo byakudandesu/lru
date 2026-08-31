@@ -43,4 +43,10 @@ func (c *cache) put(k, v string) {
 	}
 	n := newNode(k, v)
 	c.add(n)
+
+	if len(c.hashmap) > c.capacity {
+		evicted := c.list.tail
+		c.list.detach(evicted)
+		delete(c.hashmap, evicted.key)
+	}
 }
