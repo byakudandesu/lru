@@ -23,4 +23,7 @@ func main() {
 	cache.put("D", "Diana")
 	fmt.Println(cache.get("D"))
 	printForward(cache.list.head)
+
+	fmt.Println(cache.get("A"))
+	fmt.Println(cache.get("C"))
 }
