@@ -4,13 +4,10 @@ import "fmt"
 
 func main() {
 	cache := newCache(3)
-	A := newNode("A", "Alice")
-	B := newNode("B", "Brian")
-	C := newNode("C", "Charlie")
 
-	cache.add(A)
-	cache.add(B)
-	cache.add(C)
+	cache.put("A", "Alice")
+	cache.put("B", "Brian")
+	cache.put("C", "Charlie")
 
 	printForward(cache.list.head)
 
